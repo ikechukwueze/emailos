@@ -24,10 +24,6 @@ review_processor = TextPreprocessor()
 
 
 
-@app.route('/')
-def home():
-    return "<h1> Hello world </h1>"
-
 
 
 

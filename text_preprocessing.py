@@ -97,7 +97,7 @@ class TextPreprocessor:
 
         tokens = [token.text for token in doc if not token.text in stopwords]
         text_wo_stopwords = " ".join(tokens)
-        return text_wo_stopwords
+        return text_wo_stopwords.strip()
 
 
     def lemmatize_text(self, text):
