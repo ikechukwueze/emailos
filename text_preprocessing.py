@@ -2,10 +2,6 @@ import string
 import spacy
 import contractions
 from nltk.corpus import stopwords as nltk_stopwords
-import pickle
-import numpy as np
-#from tensorflow.keras.preprocessing.text import Tokenizer
-#from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 
 
@@ -139,92 +135,6 @@ class TextPreprocessor:
         text = self.lemmatize_text(text)
         return text
 
-
-
-
-
-
-# class CustomTextVectorizer:
-#     """
-#     Custom text vectorizer class for vectorizing text sequences.
-
-#     Attributes:
-#     - vocab_size (int): The size of the vocabulary.
-#     - max_tokens (int): The maximum number of tokens in a text sequence.
-#     - trunc_type (str): The truncation type for sequences ("pre" or "post").
-#     - padding_type (str): The padding type for sequences ("pre" or "post").
-#     - oov_token (str): The token to represent out-of-vocabulary words.
-#     - text_sequence (list): List of text sequences to tokenize.
-#     - tokenizer (Tokenizer): Tokenizer object for tokenization.
-
-#     Methods:
-#     - get_max_num_of_tokens_in_text_sequence: Returns the maximum number of tokens in a text sequence.
-#     - fit_on_texts: Fits the tokenizer on the text sequences and sets vocab_size and max_tokens.
-#     - texts_to_sequences: Converts text sequences to integer sequences using the tokenizer.
-
-#     """
-
-#     def __init__(self):
-#         """
-#         Initializes a CustomTextVectorizer object.
-
-#         """
-#         self.vocab_size = None
-#         self.max_tokens = 50
-#         self.trunc_type = "post"
-#         self.padding_type = "post"
-#         self.oov_token = "<OOV>"
-#         self.tokenizer = Tokenizer(oov_token=self.oov_token)
-
-#     def get_vocabulary(self):
-#         return list(self.tokenizer.word_index.keys())
-
-#     def fit(self, text_sequence):
-#         """
-#         Fits the tokenizer on the text sequences and sets vocab_size and max_tokens.
-
-#         """
-#         self.tokenizer.fit_on_texts(text_sequence)
-#         self.vocab_size = len(self.tokenizer.word_index) + 1
-
-#     def transform(self, text_sequence):
-#         """
-#         Converts text sequences to integer sequences using the tokenizer.
-
-#         Returns:
-#         - integer_sequences (ndarray): Integer sequences representing the text sequences.
-
-#         """
-#         integer_sequences = self.tokenizer.texts_to_sequences(text_sequence)
-#         integer_sequences = pad_sequences(
-#             integer_sequences,
-#             maxlen=self.max_tokens,
-#             padding=self.padding_type,
-#             truncating=self.trunc_type,
-#         )
-#         return np.array(integer_sequences)
-
-#     def fit_transform(self, text_sequence):
-#         self.fit(text_sequence)
-#         return self.transform(text_sequence)
-
-
-
-# def create_glove_embedding_matrix(vocabulary, path_to_glove_pkl, embedding_size):
-#     vocab_size = len(vocabulary) + 1
-#     vocabulary_indices = [i for i in range(vocab_size)]
-#     word_index = dict(zip(vocabulary, vocabulary_indices))
-
-#     with open(path_to_glove_pkl, "rb") as file:
-#         glove_token_to_vector = pickle.load(file)
-
-#     embedding_matrix = np.zeros((vocab_size, embedding_size))
-#     for word, i in word_index.items():
-#         embedding_vector = glove_token_to_vector.get(word)
-#         if embedding_vector is not None:
-#             embedding_matrix[i] = embedding_vector
-
-#     return embedding_matrix
 
 
 
