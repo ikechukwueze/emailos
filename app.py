@@ -11,8 +11,8 @@ app = Flask(__name__)
 project_path = os.getcwd()
 
 # Paths to the saved model and transformer
-model_path = os.path.join(project_path, "ensemble_LR-SVC-GNB_model.pkl")
-transformer_path = os.path.join(project_path, "feature_transformer.pkl")
+model_path = os.path.join(project_path, "models", "ensemble_LR-SVC-GNB_model.pkl")
+transformer_path = os.path.join(project_path, "models", "feature_transformer.pkl")
 
 # Load the saved model and transformer
 model = unpickle_python_object(model_path)
